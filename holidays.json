@@ -261,43 +261,88 @@
   ],
   "2084": [
    {
-    "date": "2027-11-18",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-04-14",
+    "name": "नयाँ वर्ष",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-11-19",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-04-15",
+    "name": "राम नवमी",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-11-25",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-05-20",
+    "name": "वैशाख पूर्णिमा",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-11-30",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-08-18",
+    "name": "श्रावण पूर्णिमा",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-12-02",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-08-26",
+    "name": "श्री कृष्ण जन्माष्ठमी",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-12-07",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-09-05",
+    "name": "गणेश चतुर्थी",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-12-08",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-09-15",
+    "name": "अनन्त चतुर्दशी",
     "source": "nepcal.com"
    },
    {
-    "date": "2027-12-09",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-09-20",
+    "name": "संविधान दिवस",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-10-01",
+    "name": "अश्विन औंसी",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-10-08",
+    "name": "सरस्वती स्तुति",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-10-10",
+    "name": "सरस्वती विसर्जन",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-10-12",
+    "name": "पापांकुश एकादशी",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-10-15",
+    "name": "कोजाग्रत पूर्णिमा",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-10-31",
+    "name": "गोवर्धन पूजा",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-11-01",
+    "name": "चन्द्र दर्शन",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-11-05",
+    "name": "छठ पर्व",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2027-11-11",
+    "name": "फाल्गुनन्द जयन्ती",
     "source": "nepcal.com"
    },
    {
@@ -306,18 +351,8 @@
     "source": "nepcal.com"
    },
    {
-    "date": "2027-12-16",
-    "name": "सार्वजनिक बिदा (Public holiday)",
-    "source": "nepcal.com"
-   },
-   {
-    "date": "2027-12-17",
-    "name": "सार्वजनिक बिदा (Public holiday)",
-    "source": "nepcal.com"
-   },
-   {
-    "date": "2027-12-24",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2027-12-26",
+    "name": "क्रिसमस",
     "source": "nepcal.com"
    },
    {
@@ -326,22 +361,47 @@
     "source": "nepcal.com"
    },
    {
-    "date": "2028-01-07",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2028-01-12",
+    "name": "पृथ्वी जयन्ती",
     "source": "nepcal.com"
    },
    {
-    "date": "2028-01-14",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2028-02-01",
+    "name": "सरस्वती पूजा",
     "source": "nepcal.com"
    },
    {
-    "date": "2028-01-20",
-    "name": "सार्वजनिक बिदा (Public holiday)",
+    "date": "2028-02-13",
+    "name": "जनयुद्ध दिवस",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2028-02-23",
+    "name": "महा शिवरात्रि",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2028-03-08",
+    "name": "नारी दिवस",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2028-03-10",
+    "name": "होली",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2028-03-26",
+    "name": "घोडेजात्रा",
+    "source": "nepcal.com"
+   },
+   {
+    "date": "2028-04-04",
+    "name": "राम नवमी",
     "source": "nepcal.com"
    }
   ]
  },
- "version": 2,
- "updated": "2026-10-08 03:15 UTC"
+ "version": 3,
+ "updated": "2026-10-08 03:17 UTC"
 }

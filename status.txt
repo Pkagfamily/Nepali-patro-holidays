@@ -1,24 +1,2 @@
-2083/1: month grid not found (334 cells)
-2083/2: month grid not found (334 cells)
-2083/3: month grid not found (333 cells)
-2083/4: 7 holiday days
-2083/5: 5 holiday days
-2083/6: month grid not found (334 cells)
-2083/7: month grid not found (335 cells)
-2083/8: 7 holiday days
-2083/9: month grid not found (335 cells)
-2083/10: 5 holiday days
-2083/11: month grid not found (335 cells)
-2083/12: 6 holiday days
-2084/1: month grid not found (334 cells)
-2084/2: month grid not found (334 cells)
-2084/3: month grid not found (333 cells)
-2084/4: month grid not found (334 cells)
-2084/5: month grid not found (334 cells)
-2084/6: month grid not found (335 cells)
-2084/7: month grid not found (335 cells)
-2084/8: 11 holiday days
-2084/9: 5 holiday days
-2084/10: 6 holiday days
-2084/11: month grid not found (335 cells)
-2084/12: month grid not found (335 cells)
+2083: 38 holiday dates listed
+2084: 37 holiday dates listed
