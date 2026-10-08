@@ -1,9 +1,9 @@
 {
- "version": "1.1.1",
- "build": 3,
+ "version": "1.2.0",
+ "build": 4,
  "url": "https://raw.githubusercontent.com/Pkagfamily/Nepali-patro-holidays/app-download/Nepali-Patro.apk",
- "sha256": "2b1f35458243116f7451a5dffd8e6f1021bd67c66eb9594c44d993e513766aec",
- "notes": "Spare access codes switched off",
+ "sha256": "c59a2a3929fcf211fbb56473edb41a62fb19facaa25f64104b6bcaddfef89157",
+ "notes": "Alerts list, Health check, battery-saving fix, live refresh",
  "revoked": [
   "2712d44890d5df9c0708d5e8636e5d4313fcd388ff1e840c2b5e5649cef0d80b",
   "5437ae8cd15cabb079b8223bb630e1079cca3c68cdb87d8ae97bf0b8cd2008bf"
