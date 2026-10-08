@@ -18,7 +18,7 @@ jobs:
                    "https://moha.gov.np/notice" \
                    "https://english.ratopati.com/story/51491/public-holidays-to-be-declared-in-2083-bs-see-list" \
                    "https://www.nepalicalendar.com/" ; do
-            i=$((i+1)); code=$(curl -sSL -m 30 -A "$UA" "$u" -o p$i.html -w "%{http_code}"); echo "$i $code $(wc -c < p$i.html) $u" >> codes.txt
+            i=$((i+1)); code=$(curl -sSL -m 30 -A "$UA" "$u" -o p$i.html -w "%{http_code}" || true); echo "$i $code $(wc -c < p$i.html) $u" >> codes.txt
           done
           git init -q -b probe && git add -A && git -c user.name=ci -c user.email=ci@local commit -qm probe
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" probe
