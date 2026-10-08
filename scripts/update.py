@@ -65,21 +65,22 @@ def holiday_names(html, year):
 
 
 def month_holidays(html, year, month):
-    """BS days flagged as holiday in the month grid (first grid on the page)."""
+    """BS days flagged as holiday in the grid of this month (found anywhere on the page)."""
     cells = re.findall(
         r'class="day_container([^"]*)"[^>]*>\s*<div class="dayvaln">([^<]*)</div>\s*<div class="dayvale">(\d+)', html)
-    n = MONTHS[year - FIRST][month - 1]
     real = [c for c in cells if "faded" not in c[0]]
-    out = []
-    expect = bs_to_ad(year, month, 1)
-    for i, (cls, npday, adday) in enumerate(real[:n]):
-        if int(npday.translate(NP)) != i + 1 or int(adday) != (expect + dt.timedelta(days=i)).day:
-            raise ValueError(f"grid mismatch {year}/{month} at {i + 1}")
-        if "holiday" in cls:
-            out.append(i + 1)
-    if len(real) < n:
-        raise ValueError(f"short grid {year}/{month}")
-    return out
+    n = MONTHS[year - FIRST][month - 1]
+    first = bs_to_ad(year, month, 1)
+    for s0 in range(len(real) - n + 1):
+        ok = True
+        for i in range(n):
+            cls, npday, adday = real[s0 + i]
+            if int(npday.translate(NP) or 0) != i + 1 or int(adday) != (first + dt.timedelta(days=i)).day:
+                ok = False
+                break
+        if ok:
+            return [i + 1 for i in range(n) if "holiday" in real[s0 + i][0]]
+    raise ValueError(f"month grid not found ({len(real)} cells)")
 
 
 def main():
