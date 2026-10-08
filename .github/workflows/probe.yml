@@ -1,0 +1,15 @@
+name: probe
+on: [push, workflow_dispatch]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -sSL -A "Mozilla/5.0" https://www.hamropatro.com/calendar/2083/7/ -o page.html
+          wc -c page.html
+          grep -o 'class="[^"]*holiday[^"]*"' page.html | sort | uniq -c | head
+          python3 - <<'PY'
+          s=open('page.html',encoding='utf-8',errors='ignore').read()
+          i=s.find('दशैं बिदा')
+          print(s[max(0,i-3000):i+500])
+          PY
