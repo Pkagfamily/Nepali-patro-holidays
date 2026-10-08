@@ -1,0 +1,27 @@
+name: Update holiday list
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [base.json, scripts/**]
+permissions:
+  contents: write
+concurrency: update
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check calendar for newly declared holidays
+        run: python3 scripts/update.py
+      - name: Weekly heartbeat (keeps the schedule active)
+        run: date -u +%G-W%V > checked.txt
+      - name: Save changes
+        run: |
+          git add holidays.json checked.txt
+          if ! git diff --cached --quiet; then
+            git -c user.name=holiday-robot -c user.email=robot@users.noreply.github.com commit -m "Update holiday list"
+            git push
+          fi
