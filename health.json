@@ -1,0 +1,8 @@
+{
+ "checked": "2026-10-08T11:55:33Z",
+ "issues": [],
+ "notes": [
+  "app 1.1.1 download OK (39 MB)",
+  "no expiring keys or tokens (robot uses GitHub's built-in token; app signing key valid to 2054)"
+ ]
+}
