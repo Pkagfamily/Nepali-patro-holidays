@@ -1,3 +1,4 @@
+# Holiday robot for the Nepali Patro app.
 """Builds holidays.json for the Nepali Patro app.
 
 base.json  - government list typed in by hand (with notes such as "Women only").
