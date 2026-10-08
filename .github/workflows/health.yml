@@ -1,0 +1,36 @@
+name: Daily health check
+on:
+  schedule:
+    # 05:30 Nepal time; GitHub often starts scheduled jobs late, so we start early.
+    - cron: "45 23 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/health.py]
+permissions:
+  contents: write
+concurrency: robot-save
+jobs:
+  health:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Repair – refresh the holiday list first
+        run: python3 scripts/update.py || true
+      - name: Check everything
+        id: check
+        run: python3 scripts/health.py
+        continue-on-error: true
+      - name: Save results
+        run: scripts/save.sh holidays.json status.txt health.json
+      - name: Report problems (GitHub emails the owner once for this run)
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "::error::Nepali Patro health check found problems – see health.json"
+          exit 1

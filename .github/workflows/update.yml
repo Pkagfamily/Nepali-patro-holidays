@@ -8,22 +8,21 @@ on:
     paths: [base.json, scripts/**]
 permissions:
   contents: write
-concurrency: update
+concurrency: robot-save
 jobs:
   update:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Check calendar for newly declared holidays
         run: python3 scripts/update.py
       - name: Weekly heartbeat (keeps the schedule active)
         run: date -u +%G-W%V > checked.txt
-      - name: Tidy old test branch
-        run: git push origin --delete probe 2>/dev/null || true
-      - name: Save changes
-        run: |
-          git add holidays.json checked.txt status.txt
-          if ! git diff --cached --quiet; then
-            git -c user.name=holiday-robot -c user.email=robot@users.noreply.github.com commit -m "Update holiday list"
-            git push
-          fi
+      - name: Save changes (retries if another job saves at the same time)
+        run: scripts/save.sh holidays.json checked.txt status.txt
