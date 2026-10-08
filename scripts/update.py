@@ -107,6 +107,10 @@ def main():
                 covered.add(a)
                 a += dt.timedelta(days=1)
         added = []
+        if not entries:
+            # no official list for this year yet: the app uses its own festival rules
+            status.append(f"{y}: no official list in base.json yet")
+            continue
         html = fetch(f"https://nepcal.com/index.php?y={y}&m=1")
         names = holiday_names(html, y) if html else {}
         if names:
@@ -122,7 +126,7 @@ def main():
             ns = [n for n in dict.fromkeys(ns) if n]
             added.append({"date": a.isoformat(), "name": " / ".join(ns) or "सार्वजनिक बिदा", "source": "nepcal.com"})
         # keep previously found holidays if the site is temporarily unreachable
-        if not added:
+        if not html:
             added = [e for e in prev.get("years", {}).get(str(y), []) if e.get("source") == "nepcal.com"]
         if entries or added:
             years[str(y)] = sorted(entries + added, key=lambda e: e["date"])
