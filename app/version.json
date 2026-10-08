@@ -1,7 +1,8 @@
 {
- "version": "1.0.0",
- "build": 1,
+ "version": "1.1.0",
+ "build": 2,
  "url": "https://raw.githubusercontent.com/Pkagfamily/Nepali-patro-holidays/app-download/Nepali-Patro.apk",
- "sha256": "630cfd43601ef57a13ed99a82eb122974caf1ebe022c5f60f70c8361af880a52",
- "notes": "First version"
+ "sha256": "38e0fc9dbce766e752e85f9fdfd6c9eeac6911d3187fc028a0be7ddb890ebf50",
+ "notes": "Access code required, English (AD) and combined calendar views, fingerprint lock removed",
+ "revoked": []
 }
