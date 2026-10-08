@@ -107,27 +107,20 @@ def main():
                 covered.add(a)
                 a += dt.timedelta(days=1)
         added = []
-        names = {}
-        for m in range(1, 13):
-            html = fetch(f"https://nepcal.com/index.php?y={y}&m={m}")
-            if not html:
-                status.append(f"{y}/{m}: fetch failed {LAST_ERR[0]}")
-                continue
-            if not names:
-                names = holiday_names(html, y)
-            try:
-                days = month_holidays(html, y, m)
-            except ValueError as e:
-                status.append(f"{y}/{m}: {e}")
-                continue
+        html = fetch(f"https://nepcal.com/index.php?y={y}&m=1")
+        names = holiday_names(html, y) if html else {}
+        if names:
             scraped_ok = True
-            status.append(f"{y}/{m}: {len(days)} holiday days")
-            for d in days:
+        status.append(f"{y}: {len(names)} holiday dates listed" if html else f"{y}: fetch failed {LAST_ERR[0]}")
+        for (m, d), ns in sorted(names.items()):
+            try:
                 a = bs_to_ad(y, m, d)
-                if a.weekday() == 5 or a in covered:
-                    continue  # Saturday or already listed
-                n = " / ".join(dict.fromkeys(names.get((m, d), []))) or "सार्वजनिक बिदा (Public holiday)"
-                added.append({"date": a.isoformat(), "name": n, "source": "nepcal.com"})
+            except Exception:
+                continue
+            if a.weekday() == 5 or a in covered:
+                continue  # Saturday or already listed
+            ns = [n for n in dict.fromkeys(ns) if n]
+            added.append({"date": a.isoformat(), "name": " / ".join(ns) or "सार्वजनिक बिदा", "source": "nepcal.com"})
         # keep previously found holidays if the site is temporarily unreachable
         if not added:
             added = [e for e in prev.get("years", {}).get(str(y), []) if e.get("source") == "nepcal.com"]
