@@ -14,6 +14,7 @@ import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA = "Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 Chrome/120 Mobile Safari/537.36"
+LAST_ERR = ['']
 NP = str.maketrans("०१२३४५६७८९", "0123456789")
 
 tbl = json.load(open(os.path.join(ROOT, "scripts", "bs_table.json")))
@@ -44,6 +45,7 @@ def fetch(url):
                 return r.read().decode("utf-8", "ignore")
         except Exception as e:  # noqa
             print("fetch failed", url, e)
+            LAST_ERR[0] = str(e)
             time.sleep(5)
     return None
 
@@ -108,13 +110,14 @@ def main():
         for m in range(1, 13):
             html = fetch(f"https://nepcal.com/index.php?y={y}&m={m}")
             if not html:
+                status.append(f"{y}/{m}: fetch failed {LAST_ERR[0]}")
                 continue
             if not names:
                 names = holiday_names(html, y)
             try:
                 days = month_holidays(html, y, m)
             except ValueError as e:
-                print(e)
+                status.append(f"{y}/{m}: {e}")
                 continue
             scraped_ok = True
             status.append(f"{y}/{m}: {len(days)} holiday days")
