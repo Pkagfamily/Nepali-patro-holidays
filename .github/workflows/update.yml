@@ -18,6 +18,8 @@ jobs:
         run: python3 scripts/update.py
       - name: Weekly heartbeat (keeps the schedule active)
         run: date -u +%G-W%V > checked.txt
+      - name: Tidy old test branch
+        run: git push origin --delete probe 2>/dev/null || true
       - name: Save changes
         run: |
           git add holidays.json checked.txt status.txt
