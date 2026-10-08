@@ -91,6 +91,7 @@ def main():
     cur = ad_to_bs_year(today)
     years = {k: list(v) for k, v in base["years"].items()}
     scraped_ok = False
+    status = []
     for y in (cur, cur + 1):
         if y - FIRST >= len(MONTHS):
             continue
@@ -116,6 +117,7 @@ def main():
                 print(e)
                 continue
             scraped_ok = True
+            status.append(f"{y}/{m}: {len(days)} holiday days")
             for d in days:
                 a = bs_to_ad(y, m, d)
                 if a.weekday() == 5 or a in covered:
@@ -127,6 +129,7 @@ def main():
             added = [e for e in prev.get("years", {}).get(str(y), []) if e.get("source") == "nepcal.com"]
         if entries or added:
             years[str(y)] = sorted(entries + added, key=lambda e: e["date"])
+    open(os.path.join(ROOT, "status.txt"), "w").write("\n".join(status) + "\n")
     if not scraped_ok:
         print("could not read the calendar site; keeping previous list")
         years = prev.get("years") or years
