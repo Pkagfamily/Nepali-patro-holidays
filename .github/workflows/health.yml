@@ -27,8 +27,10 @@ jobs:
         id: check
         run: python3 scripts/health.py
         continue-on-error: true
+      - name: Remove temporary test branch
+        run: git push origin --delete probe 2>/dev/null || true
       - name: Save results
-        run: scripts/save.sh holidays.json status.txt health.json
+        run: scripts/save.sh holidays.json status.txt health.json notices_seen.json
       - name: Report problems (GitHub emails the owner once for this run)
         if: steps.check.outcome == 'failure'
         run: |

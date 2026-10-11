@@ -125,7 +125,9 @@ def main():
             if a.weekday() == 5 or a in covered:
                 continue  # Saturday or already listed
             ns = [n for n in dict.fromkeys(ns) if n]
-            added.append({"date": a.isoformat(), "name": " / ".join(ns) or "सार्वजनिक बिदा", "source": "nepcal.com"})
+            # Newly declared by the government after the yearly list: national holiday (offices & banks closed)
+            added.append({"date": a.isoformat(), "name": " / ".join(ns) or "सार्वजनिक बिदा", "scope": "all",
+                          "source": "nepcal.com"})
         # keep previously found holidays if the site is temporarily unreachable
         if not html:
             added = [e for e in prev.get("years", {}).get(str(y), []) if e.get("source") == "nepcal.com"]
@@ -134,11 +136,16 @@ def main():
     open(os.path.join(ROOT, "status.txt"), "w").write("\n".join(status) + "\n")
     if not scraped_ok:
         print("could not read the calendar site; keeping previous list")
-        years = prev.get("years") or years
+        # keep the official list from base.json; previously found additions were kept above
+        pass
     new = {"years": years}
-    if json.dumps(prev.get("years"), sort_keys=True, ensure_ascii=False) != json.dumps(years, sort_keys=True, ensure_ascii=False):
+    for k in ("observances", "pending", "rules", "sources", "verified"):
+        if k in base:
+            new[k] = base[k]
+    strip = lambda d: {k: v for k, v in d.items() if k not in ("version", "updated")}
+    if json.dumps(strip(prev), sort_keys=True, ensure_ascii=False) != json.dumps(strip(new), sort_keys=True, ensure_ascii=False):
         new["version"] = int(prev.get("version", 0)) + 1
-        new["updated"] = dt.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        new["updated"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
         json.dump(new, open(out_path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print("holidays.json updated to version", new["version"])
     else:

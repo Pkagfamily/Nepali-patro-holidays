@@ -58,6 +58,40 @@ def cross_check(cur):
             issues.append(f"{e['name']} ({e['date']}) is not a holiday on the calendar website – please check")
 
 
+def watch_official_notices():
+    """Alert when the Home Ministry or Nepal Rastra Bank publishes a new holiday notice."""
+    import re, html as H
+    path = os.path.join(ROOT, "notices_seen.json")
+    try:
+        seen = json.load(open(path, encoding="utf-8"))
+    except Exception:
+        seen = {}
+    first_run = not seen
+    found = {}
+    pages = {
+        "Home Ministry": "https://moha.gov.np/page/holidays",
+        "Nepal Rastra Bank": "https://www.nrb.org.np/category/holiday/",
+    }
+    for who, url in pages.items():
+        page = update.fetch(url)
+        if not page:
+            notes.append(f"{who} holiday page not reachable today (will retry)")
+            continue
+        for href, label in re.findall(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', page, flags=re.S):
+            t = H.unescape(re.sub(r"<[^>]+>", " ", label)).strip()
+            t = re.sub(r"\s+", " ", t)
+            key = href.split("#")[0]
+            if ("holiday" in key.lower() or "बिदा" in t or "Holiday" in t) and len(t) > 8 and "category" not in key:
+                found[key] = f"{who}: {t}"
+    new = [v for k, v in found.items() if k not in seen]
+    if new and not first_run:
+        for v in new:
+            issues.append(f"New official holiday notice published – {v}. Ask Claude to add it.")
+    seen.update(found)
+    json.dump(seen, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    notes.append(f"watching {len(seen)} official holiday notices")
+
+
 def check_app_download():
     try:
         v = json.load(open(os.path.join(ROOT, "app", "version.json")))
@@ -76,6 +110,7 @@ def main():
     h, cur = check_holiday_files()
     if cur:
         cross_check(cur)
+    watch_official_notices()
     check_app_download()
     notes.append("no expiring keys or tokens (robot uses GitHub's built-in token; app signing key valid to 2054)")
     out = {"checked": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"), "issues": issues, "notes": notes}
