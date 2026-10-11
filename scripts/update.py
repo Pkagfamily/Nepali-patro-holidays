@@ -88,7 +88,8 @@ NOTICE_PAGES = {
     "Home Ministry": ["https://moha.gov.np/page/notice", "https://moha.gov.np/"],
     "Nepal Rastra Bank": ["https://www.nrb.org.np/category/notices/", "https://www.nrb.org.np/category/holiday/"],
 }
-NOTICE_WORDS = ("बिदा", "विदा", "holiday", "Holiday", "कार्यालय समय", "खुला", "बन्द", "office hour", "Office Hour")
+NOTICE_WORDS = ("बिदा", "विदा", "holiday", "Holiday", "कार्यालय समय", "कारोबार समय", "office hour", "Office Hour",
+                "खुला रहने", "बन्द रहने", "खुला राख्ने", "बन्द हुने")
 
 
 def watch_notices(prev_alerts):
