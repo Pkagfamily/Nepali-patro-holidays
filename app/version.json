@@ -1,9 +1,9 @@
 {
- "version": "1.2.0",
- "build": 4,
+ "version": "1.3.0",
+ "build": 5,
  "url": "https://raw.githubusercontent.com/Pkagfamily/Nepali-patro-holidays/app-download/Nepali-Patro.apk",
- "sha256": "c59a2a3929fcf211fbb56473edb41a62fb19facaa25f64104b6bcaddfef89157",
- "notes": "Alerts list, Health check, battery-saving fix, live refresh",
+ "sha256": "dd95c3744a6b3dbe0b687c5312fe8b042c2d7fae68b13cabeb63565feb6b8cf8",
+ "notes": "Government office & bank open/closed status (from the Nepal Gazette and Nepal Rastra Bank)",
  "revoked": [
   "2712d44890d5df9c0708d5e8636e5d4313fcd388ff1e840c2b5e5649cef0d80b",
   "5437ae8cd15cabb079b8223bb630e1079cca3c68cdb87d8ae97bf0b8cd2008bf"
