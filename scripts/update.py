@@ -84,6 +84,43 @@ def month_holidays(html, year, month):
     raise ValueError(f"month grid not found ({len(real)} cells)")
 
 
+NOTICE_PAGES = {
+    "Home Ministry": ["https://moha.gov.np/page/notice", "https://moha.gov.np/"],
+    "Nepal Rastra Bank": ["https://www.nrb.org.np/category/notices/", "https://www.nrb.org.np/category/holiday/"],
+}
+NOTICE_WORDS = ("बिदा", "विदा", "holiday", "Holiday", "कार्यालय समय", "खुला", "बन्द", "office hour", "Office Hour")
+
+
+def watch_notices(prev_alerts):
+    """Official notices about holidays / office or bank opening, from the government and the central bank.
+    Returns the full list of seen notices (with the time each was first seen)."""
+    import html as H
+    seen = {a["url"]: a for a in prev_alerts}
+    first_run = not prev_alerts
+    now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    reachable = 0
+    for who, urls in NOTICE_PAGES.items():
+        for url in urls:
+            page = fetch(url)
+            if not page:
+                continue
+            reachable += 1
+            for href, label in re.findall(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', page, flags=re.S):
+                t = re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", label))).strip()
+                if len(t) < 12 or not any(w in t for w in NOTICE_WORDS):
+                    continue
+                if not href.startswith("http"):
+                    continue
+                key = href.split("#")[0]
+                if key in seen:
+                    continue
+                seen[key] = {"url": key, "title": f"{who}: {t}"[:220], "first": "seed" if first_run else now}
+    if reachable == 0:
+        return prev_alerts
+    items = sorted(seen.values(), key=lambda a: a["first"], reverse=True)
+    return items[:200]
+
+
 def main():
     base = json.load(open(os.path.join(ROOT, "base.json"), encoding="utf-8"))
     out_path = os.path.join(ROOT, "holidays.json")
@@ -139,6 +176,7 @@ def main():
         # keep the official list from base.json; previously found additions were kept above
         pass
     new = {"years": years}
+    new["alerts"] = watch_notices(prev.get("alerts", []))
     for k in ("observances", "pending", "rules", "sources", "verified"):
         if k in base:
             new[k] = base[k]
