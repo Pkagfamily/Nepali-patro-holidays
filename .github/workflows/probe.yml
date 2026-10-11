@@ -1,0 +1,31 @@
+name: probe
+on: [push, workflow_dispatch]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          mkdir out && cd out
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
+          get() { curl -sSL -m 60 -A "$UA" "$1" -o "$2" -w "%{http_code} $1\n" >> codes.txt || echo "ERR $1" >> codes.txt; }
+          get "https://www.nrb.org.np/hrm/list-of-holidays-for-2083-b-s/" nrb_en.html
+          get "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ae%e0%a5%a9-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/" nrb_np.html
+          get "https://www.nrb.org.np/category/notices/" nrb_notices.html
+          get "https://www.nrb.org.np/category/circulars/" nrb_circ.html
+          get "https://moha.gov.np/" moha.html
+          get "https://moha.gov.np/en/page/public-holidays" moha_ph.html
+          get "https://moha.gov.np/page/public-holiday" moha_ph2.html
+          get "https://www.lokaantar.com/story/316281/2026/4/5/main-news/home-ministry-" lok.html
+          get "https://www.onlinekhabar.com/2026/04/1905433/government-offices-and-educational-institutions-to-be-closed-on-saturdays-and-sundays-from-tomorrow" ok.html
+          get "https://khabarhub.com/2026/05/951552/" kh.html
+          for f in nrb_en.html nrb_np.html nrb_notices.html nrb_circ.html moha.html moha_ph.html moha_ph2.html; do
+            grep -oE 'https?://[^"'"'"' ]+\.pdf' $f 2>/dev/null | sort -u | head -40 >> pdfs.txt || true
+          done
+          i=0
+          grep -iE 'holiday|bida|%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be|2083|083' pdfs.txt | sort -u | head -15 | while read u; do
+            i=$((i+1)); get "$u" "doc$i.pdf"
+          done
+          git init -q -b probe && git add -A && git -c user.name=ci -c user.email=ci@local commit -qm probe
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" probe
