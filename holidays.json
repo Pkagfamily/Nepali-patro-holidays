@@ -229,23 +229,6 @@
  },
  "rules": [
   {
-   "from": "2000-01-01",
-   "weekend": [
-    6
-   ],
-   "gov": {
-    "hours": "10:00-17:00",
-    "winter": "10:00-16:00",
-    "friday": "10:00-15:00"
-   },
-   "bank": {
-    "hours": "10:00-16:00",
-    "winter": "10:00-15:00",
-    "friday": "10:00-12:30"
-   },
-   "source": "Nepal Gazette (Rajpatra) Part 5, Khanda 75 No. 67, Falgun 18 2082 – Ministry of Home Affairs; Nepal Rastra Bank, List of Holidays 2026/04/14–2027/04/13 (HRM Department, 20 Mar 2026)"
-  },
-  {
    "from": "2026-04-06",
    "weekend": [
     6,
@@ -269,6 +252,6 @@
   ]
  },
  "verified": "2026-10-11: every date checked against the Gazette weekday, the BS calendar and the NRB bank list",
- "version": 5,
- "updated": "2026-10-11 05:36 UTC"
+ "version": 6,
+ "updated": "2026-10-11 06:07 UTC"
 }
