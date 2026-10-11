@@ -201,6 +201,83 @@
    }
   ]
  },
+ "alerts": [
+  {
+   "url": "https://moha.gov.np/page/public-holidays-for-2080",
+   "title": "Home Ministry: सम्वत् २०८० सालका विदाहरू",
+   "first": "seed"
+  },
+  {
+   "url": "https://moha.gov.np/page/government-and-public-holidays-in-2081",
+   "title": "Home Ministry: २०८१ सालको सरकारी तथा सार्वजनिक विदा",
+   "first": "seed"
+  },
+  {
+   "url": "https://moha.gov.np/page/government-and-public-holidays-in-2082",
+   "title": "Home Ministry: २०८२ सालको सरकारी तथा सार्वजनिक विदा",
+   "first": "seed"
+  },
+  {
+   "url": "https://moha.gov.np/page/government-and-public-holidays-in-2083",
+   "title": "Home Ministry: २०८३ सालको सरकारी तथा सार्वजनिक विदा",
+   "first": "seed"
+  },
+  {
+   "url": "https://moha.gov.np/page/tender",
+   "title": "Home Ministry: बोलपत्र बोलपत्र / शिलबन्दी दरभाउपत्र सम्बन्धि सम्पूर्ण सूचना",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/list-of-holidays-for-2083-b-s/",
+   "title": "Nepal Rastra Bank: List of Holidays for 2083 B.S.",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ae%e0%a5%a9-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/",
+   "title": "Nepal Rastra Bank: वि.सं. २०८३ सालको बैंक बिदाको सूची",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ae%e0%a5%a8-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/",
+   "title": "Nepal Rastra Bank: वि.सं. २०८२ सालको बैंक बिदाको सूची",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/list-of-bank-holidays-for-2081-b-s/",
+   "title": "Nepal Rastra Bank: List of Bank Holidays for 2081 B.S.",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ae%e0%a5%a7-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/",
+   "title": "Nepal Rastra Bank: वि.सं. २०८१ सालको बैंक बिदाको सूची",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be-%e0%a4%95%e0%a4%be%e0%a4%af%e0%a4%ae-%e0%a4%a8%e0%a4%b0%e0%a4%b9%e0%a5%87%e0%a4%95%e0%a4%be%e0%a5%87-%e0%a4%b8%e0%a4%ae%e0%a5%8d%e0%a4%ac%e0%a4%a8%e0%a5%8d/",
+   "title": "Nepal Rastra Bank: बिदा कायम नरहेकाे सम्बन्धी सूचना",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ae%e0%a5%a6-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/",
+   "title": "Nepal Rastra Bank: वि.सं. २०८० सालको बैंक बिदाको सूची",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/list-of-bank-holidays-for-2080-b-s/",
+   "title": "Nepal Rastra Bank: List of Bank Holidays for 2080 B.S.",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/list-of-bank-holidays-for-2079-b-s/",
+   "title": "Nepal Rastra Bank: List of Bank Holidays for 2079 B.S.",
+   "first": "seed"
+  },
+  {
+   "url": "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ad%e0%a5%af-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/",
+   "title": "Nepal Rastra Bank: वि.सं. २०७९ सालको बैंक बिदाको सूची",
+   "first": "seed"
+  }
+ ],
  "observances": {
   "2083": [
    {
@@ -252,6 +329,6 @@
   ]
  },
  "verified": "2026-10-11: every date checked against the Gazette weekday, the BS calendar and the NRB bank list",
- "version": 6,
- "updated": "2026-10-11 06:07 UTC"
+ "version": 7,
+ "updated": "2026-10-11 06:20 UTC"
 }
