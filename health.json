@@ -1,7 +1,9 @@
 {
- "checked": "2026-10-21T00:03:39Z",
+ "checked": "2026-10-22T00:18:51Z",
  "issues": [],
  "notes": [
+  "calendar website not reachable today (will retry)",
+  "Home Ministry holiday page not reachable today (will retry)",
   "watching 14 official holiday notices",
   "app 1.3.1 download OK (40 MB)",
   "no expiring keys or tokens (robot uses GitHub's built-in token; app signing key valid to 2054)"
