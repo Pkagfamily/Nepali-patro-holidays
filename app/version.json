@@ -1,9 +1,9 @@
 {
- "version": "1.3.1",
- "build": 6,
+ "version": "1.4.0",
+ "build": 7,
  "url": "https://raw.githubusercontent.com/Pkagfamily/Nepali-patro-holidays/app-download/Nepali-Patro.apk",
- "sha256": "9e86559677401afb8f60ccaf902de6ed9ff76b8ca0eb6b3f4355d1b009c0018e",
- "notes": "Alerts for official holiday notices; hourly checks; office/bank status in new-holiday alerts",
+ "sha256": "e144726b9a3ae4fc8546661e98e5ddb3cf0de6be4d8834471537f407e401fefc",
+ "notes": "New Planner: events, tasks, to-do lists, birthdays, bills, shraddha with reminders; import from Google Calendar (owner phone)",
  "revoked": [
   "2712d44890d5df9c0708d5e8636e5d4313fcd388ff1e840c2b5e5649cef0d80b",
   "5437ae8cd15cabb079b8223bb630e1079cca3c68cdb87d8ae97bf0b8cd2008bf"
