@@ -1,11 +1,11 @@
 {
- "checked": "2026-10-23T00:17:08Z",
+ "checked": "2026-10-24T00:16:43Z",
  "issues": [],
  "notes": [
   "Home Ministry holiday page not reachable today (will retry)",
   "Nepal Rastra Bank holiday page not reachable today (will retry)",
   "watching 14 official holiday notices",
-  "app 1.4.0 download OK (42 MB)",
+  "app 1.4.1 download OK (42 MB)",
   "no expiring keys or tokens (robot uses GitHub's built-in token; app signing key valid to 2054)"
  ]
 }
