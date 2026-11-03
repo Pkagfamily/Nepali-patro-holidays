@@ -1,2 +1,2 @@
-2083: 38 holiday dates listed
+2083: fetch failed <urlopen error [Errno 101] Network is unreachable>
 2084: no official list in base.json yet
