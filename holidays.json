@@ -276,6 +276,11 @@
    "url": "https://www.nrb.org.np/hrm/%e0%a4%b5%e0%a4%bf-%e0%a4%b8%e0%a4%82-%e0%a5%a8%e0%a5%a6%e0%a5%ad%e0%a5%af-%e0%a4%b8%e0%a4%be%e0%a4%b2%e0%a4%95%e0%a5%8b-%e0%a4%ac%e0%a5%88%e0%a4%82%e0%a4%95-%e0%a4%ac%e0%a4%bf%e0%a4%a6%e0%a4%be/",
    "title": "Nepal Rastra Bank: वि.सं. २०७९ सालको बैंक बिदाको सूची",
    "first": "seed"
+  },
+  {
+   "url": "https://moha.gov.np/post/sa-ra-vajana-ka-b-tha-sama-bna-thha-sa-cana-38",
+   "title": "Home Ministry: सार्वजनिक बिदा सम्बन्धी सूचना १ घण्टा अगाडी",
+   "first": "2026-11-13T09:37:11Z"
   }
  ],
  "observances": {
@@ -329,6 +334,6 @@
   ]
  },
  "verified": "2026-10-11: every date checked against the Gazette weekday, the BS calendar and the NRB bank list",
- "version": 7,
- "updated": "2026-10-11 06:20 UTC"
+ "version": 8,
+ "updated": "2026-11-13 09:37 UTC"
 }
