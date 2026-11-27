@@ -1,9 +1,9 @@
 {
- "version": "1.6.0",
- "build": 11,
+ "version": "1.7.0",
+ "build": 12,
  "url": "https://raw.githubusercontent.com/Pkagfamily/Nepali-patro-holidays/app-download/Nepali-Patro.apk",
- "sha256": "023e198018a2ffa70e6bb248ce6bd5f790b9a541b17059804e99667833b94948",
- "notes": "New: Aunsi (new moon) and Purnima (full moon) shown on the calendar, with morning reminders",
+ "sha256": "dc749b4791d739aa1c7fd46b9585b8feb832a510c9a1b8b29288b9696124f6dc",
+ "notes": "New: Tap and speak on the first screen, bank-holiday payment reminders, My tools (seasons, due dates, vaccines, renewals, backup and more), Holi date fix",
  "revoked": [
   "2712d44890d5df9c0708d5e8636e5d4313fcd388ff1e840c2b5e5649cef0d80b",
   "5437ae8cd15cabb079b8223bb630e1079cca3c68cdb87d8ae97bf0b8cd2008bf"
