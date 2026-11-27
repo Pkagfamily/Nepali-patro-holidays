@@ -92,15 +92,27 @@ NOTICE_WORDS = ("बिदा", "विदा", "holiday", "Holiday", "कार
                 "खुला रहने", "बन्द रहने", "खुला राख्ने", "बन्द हुने")
 
 
-def watch_notices(prev_alerts):
-    """Official notices about holidays / office or bank opening, from the government and the central bank.
+HEALTH_PAGES = {
+    "Ministry of Health": ["https://mohp.gov.np/news/notice/np", "https://mohp.gov.np/news/press-release/np", "https://mohp.gov.np/"],
+    "Department of Health Services": ["https://dohs.gov.np/", "https://fwd.gov.np/"],
+}
+HEALTH_WORDS = ("खोप", "भिटामिन", "पोलियो", "दादुरा", "रुबेला", "टाइफाइड", "जुकाको", "अभियान", "Vitamin", "vitamin",
+                "Polio", "polio", "Measles", "measles", "Typhoid", "typhoid", "deworm", "Deworm", "vaccin", "Vaccin",
+                "Immuniz", "immuniz")
+
+
+def watch_notices(prev_alerts, pages=None, words=None):
+    """Official notices about holidays / office or bank opening, from the government and the central bank
+    (or, with [pages]/[words], government health campaign notices).
     Returns the full list of seen notices (with the time each was first seen)."""
+    pages = pages or NOTICE_PAGES
+    words = words or NOTICE_WORDS
     import html as H
     seen = {a["url"]: a for a in prev_alerts}
     first_run = not prev_alerts
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     reachable = 0
-    for who, urls in NOTICE_PAGES.items():
+    for who, urls in pages.items():
         for url in urls:
             page = fetch(url)
             if not page:
@@ -108,7 +120,7 @@ def watch_notices(prev_alerts):
             reachable += 1
             for href, label in re.findall(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', page, flags=re.S):
                 t = re.sub(r"\s+", " ", H.unescape(re.sub(r"<[^>]+>", " ", label))).strip()
-                if len(t) < 12 or not any(w in t for w in NOTICE_WORDS):
+                if len(t) < 12 or not any(w in t for w in words):
                     continue
                 if not href.startswith("http"):
                     continue
@@ -178,7 +190,8 @@ def main():
         pass
     new = {"years": years}
     new["alerts"] = watch_notices(prev.get("alerts", []))
-    for k in ("observances", "pending", "rules", "sources", "verified"):
+    new["health_alerts"] = watch_notices(prev.get("health_alerts", []), HEALTH_PAGES, HEALTH_WORDS)
+    for k in ("observances", "pending", "rules", "sources", "verified", "campaigns"):
         if k in base:
             new[k] = base[k]
     strip = lambda d: {k: v for k, v in d.items() if k not in ("version", "updated")}

@@ -252,5 +252,15 @@
    "Nepal Rastra Bank, List of Holidays 2026/04/14–2027/04/13 (HRM Department, 20 Mar 2026)"
   ]
  },
- "verified": "2026-10-11: every date checked against the Gazette weekday, the BS calendar and the NRB bank list"
+ "verified": "2026-10-11: every date checked against the Gazette weekday, the BS calendar and the NRB bank list",
+ "campaigns": [
+  {
+   "title": "Vitamin A & deworming",
+   "start": "2027-04-19",
+   "end": "2027-04-20",
+   "who": "Vitamin A: children 6–59 months · Deworming: 12–59 months",
+   "where": "Your ward's distribution centre / health volunteer",
+   "source": "Ministry of Health and Population (second phase, announced Nov 2026)"
+  }
+ ]
 }
