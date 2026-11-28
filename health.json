@@ -1,9 +1,9 @@
 {
- "checked": "2026-11-27T05:21:49Z",
+ "checked": "2026-11-28T05:01:04Z",
  "issues": [],
  "notes": [
   "watching 14 official holiday notices",
-  "app 1.6.0 download OK (42 MB)",
+  "app 1.7.0 download OK (57 MB)",
   "no expiring keys or tokens (robot uses GitHub's built-in token; app signing key valid to 2054)"
  ]
 }
